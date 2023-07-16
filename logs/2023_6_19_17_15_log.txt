@@ -1,0 +1,5 @@
+IN Packet package_8::class_1066 AbstractPacket[length = 8, id = 2001736388] Module: 4
+ protectionData (__AS3__.vec::Vector.<int>): -42,67,-20,-75
+OUT Packet package_8::class_13 AbstractPacket[length = 8, id = -1864333717] Module: 4
+ lang (String): en
+IN Packet package_267::class_800 AbstractPacket[length = 8, id = -1317889894] Module: 2

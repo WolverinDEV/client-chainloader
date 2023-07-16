@@ -1,7 +1,7 @@
 param(
   [Parameter(Mandatory = $true)] [string] $SdkPath,
   [string] $OutputFile = './build/chainloader.swf',
-  [bool] $DebugBuild = $false
+  [bool] $ReleaseBuild = $false
 )
 
 if(!(Get-Command "java" -ErrorAction SilentlyContinue)) {
@@ -15,7 +15,7 @@ Write-Host "[Build] Building client chainloader..." -ForegroundColor Yellow
 Write-Host "[Build] Build options:" -ForegroundColor Green
 Write-Host "[Build] - Java version: $(Get-Command "java" | Select-Object -ExpandProperty Version)" -ForegroundColor Green
 Write-Host "[Build] - Adobe AIR SDK: $(Resolve-Path $SdkPath)" -ForegroundColor Green
-Write-Host "[Build] - Debug information: $(if($DebugBuild) { "yes" } else { "no" })" -ForegroundColor Green
+Write-Host "[Build] - Debug information: $(if(!$ReleaseBuild) { "yes" } else { "no" })" -ForegroundColor Green
 Write-Host "[Build] - Output file: $ResolvedOutputFile" -ForegroundColor Green
 Write-Host "[Build] ===== COMPILER LOG BEGIN =====" -ForegroundColor Yellow
 
@@ -26,10 +26,10 @@ java `
   -swf-version 15 `
   -output "$ResolvedOutputFile" `
   -source-path "src/" `
-  -default-size="256,256" `
-  -default-background-color="0x000000" `
+  -default-size="1000,600" `
+  -default-background-color="0xFF00FF" `
   "src/jp/assasans/protanki/client/chainloader/Main.as" `
-  $(if($DebugBuild) { "-debug" })
+  $(if(!$ReleaseBuild) { "-debug" })
 
 Write-Host "[Build] ===== COMPILER LOG END =====" -ForegroundColor Yellow
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/3.2">
+  <id>%%app-id%%</id>
+  <versionNumber>1.0</versionNumber>
+  <filename>%%app-id%%</filename>
+
+  <initialWindow>
+    <title>ProTanki %%window-suffix%%</title>
+    <content>%%loader%%?%%content%%</content>
+    <visible>true</visible>
+
+    <renderMode>direct</renderMode>
+    <depthAndStencil>true</depthAndStencil>
+
+    <minimizable>true</minimizable>
+    <maximizable>true</maximizable>
+    <resizable>true</resizable>
+  </initialWindow>
+</application>
